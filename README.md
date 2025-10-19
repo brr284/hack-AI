@@ -1,84 +1,201 @@
 # hack-AI
 
-Siber Güvenlik AI Asistanı - Cybersecurity AI Assistant
+<div align="center">
 
-## Açıklama / Description
+**Siber Güvenlik AI Asistanı | Cybersecurity AI Assistant**
 
-Hack-AI, siber güvenlik profesyonelleri ve araştırmacıları için geliştirilmiş bir masaüstü AI asistanıdır. Pollinations AI API'sini kullanarak güvenlik testleri, kod analizi ve penetrasyon testi araçları oluşturur.
+[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/brr284/hack-AI)
 
-Hack-AI is a desktop AI assistant developed for cybersecurity professionals and researchers. It uses the Pollinations AI API to generate security tests, code analysis, and penetration testing tools.
+</div>
 
-## Özellikler / Features
+## 📋 Genel Bakış / Overview
 
-- 🦠 **Malware Analizi**: Güvenlik araştırması için malware örnekleri oluşturma
-- 🔓 **Exploit Geliştirme**: Güvenlik testi için exploit kodu üretme
-- 🔍 **Penetrasyon Testi**: Pentest araçları ve scriptleri oluşturma
-- 🛡️ **Güvenlik Denetimi**: Kod güvenlik analizi ve öneriler
-- 💬 **Serbest Mod**: Genel AI metin üretimi
+**hack-AI**, siber güvenlik profesyonelleri ve araştırmacılar için geliştirilmiş, açık kaynaklı bir masaüstü AI asistanıdır. Pollinations AI API'sini kullanarak güvenlik testleri, kod analizi, exploit geliştirme ve penetrasyon testi araçları oluşturmanıza yardımcı olur.
 
-## Kurulum / Installation
+**hack-AI** is an open-source desktop AI assistant designed for cybersecurity professionals and researchers. It leverages the Pollinations AI API to help you create security tests, analyze code, develop exploits, and build penetration testing tools.
+
+## ✨ Özellikler / Features
+
+### 🦠 Malware Analizi / Malware Analysis
+Güvenlik araştırması için malware örnekleri ve davranış analizleri oluşturun.
+
+### 🔓 Exploit Geliştirme / Exploit Development  
+Güvenlik testleri için exploit kodları ve PoC (Proof of Concept) scriptleri geliştirin.
+
+### 🔍 Penetrasyon Testi / Penetration Testing
+Hedef sistemler için özelleştirilmiş pentest araçları ve otomatik scriptler oluşturun.
+
+### 🛡️ Güvenlik Denetimi / Security Auditing
+Kod güvenlik analizi yapın, zafiyetleri tespit edin ve düzeltme önerileri alın.
+
+### 💬 Serbest Mod / Free Mode
+Genel amaçlı AI destekli metin üretimi ve teknik danışmanlık.
+
+## 🚀 Kurulum / Installation
 
 ### Gereksinimler / Requirements
 
-- Python 3.7+
-- Windows İşletim Sistemi
+- **Python**: 3.7 veya üzeri
+- **İşletim Sistemi**: Windows, Linux (WSL)
+- **Bağımlılıklar**: `requirements.txt` dosyasında listelendi
 
-### Adımlar / Steps
+### Windows Kurulumu
 
 ```powershell
-# Repository'yi klonlayın / Clone the repository
+# Repository'yi klonlayın
 git clone https://github.com/brr284/hack-AI.git
 cd hack-AI
 
-# Bağımlılıkları yükleyin / Install dependencies
+# Bağımlılıkları yükleyin
 pip install -r requirements.txt
+
+# Uygulamayı çalıştırın
+hackai open
+# veya
+python hackai_app.py
 ```
 
-## Kullanım / Usage
+### Linux / WSL Kurulumu
 
-### Komut satırından / From command line:
+```bash
+# Repository'yi klonlayın
+git clone https://github.com/brr284/hack-AI.git
+cd hack-AI
 
+# Tkinter'ı yükleyin (gerekirse)
+sudo apt update
+sudo apt install -y python3-tk
+
+# Python bağımlılıklarını yükleyin
+pip install -r requirements.txt
+
+# Launcher'ı çalıştırılabilir yapın
+chmod +x hackai
+
+# Uygulamayı başlatın
+./hackai open
+# veya
+python3 hackai_app.py
+```
+
+## 💻 Kullanım / Usage
+
+### Komut Satırı / Command Line
+
+**Windows:**
 ```powershell
 hackai open
 ```
 
-veya / or
-
-```powershell
-python hackai_app.py
+**Linux:**
+```bash
+./hackai open
 ```
 
-### Arayüz / Interface
+**Her İki Platform:**
+```bash
+python3 hackai_app.py
+```
 
-1. Sol panelden bir mod seçin (Malware, Exploit, Pentest, Audit, Free)
-2. İsteğinizi metin kutusuna girin
-3. "Oluştur" butonuna tıklayın
-4. Sonucu görüntüleyin ve "Kaydet" ile dosyaya kaydedin
+### Arayüz Kullanımı / Interface Guide
 
-## Mimari / Architecture
+1. **Mod Seçimi**: Sol panelden bir operasyon modu seçin
+   - 🦠 Malware: Malware analiz örnekleri
+   - 🔓 Exploit: Exploit ve PoC kodları
+   - 🔍 Pentest: Penetrasyon testi araçları
+   - 🛡️ Audit: Kod güvenlik denetimi
+   - 💬 Free: Serbest mod
 
-- **hackai_app.py**: Tkinter GUI ve uygulama mantığı
-- **pollinations_ai.py**: Pollinations AI API istemcisi
-- **hackai.bat**: Windows başlatıcı script
+2. **İstek Girişi**: Metin kutusuna detaylı açıklama girin
 
-## Teknolojiler / Technologies
+3. **Üretim**: "Oluştur" butonuna tıklayın ve AI'ın yanıtını bekleyin
 
-- Python 3
-- Tkinter (GUI)
-- Pollinations AI API
-- Requests (HTTP client)
-- Threading (async operations)
+4. **Kaydetme**: Sonucu "Kaydet" butonu ile dosyaya aktarın
 
-## Uyarı / Warning
+## 🏗️ Mimari / Architecture
 
-⚠️ Bu araç yalnızca eğitim ve yasal güvenlik testleri için tasarlanmıştır. Yetkisiz sistemlere karşı kullanımı yasa dışıdır.
+```
+hack-AI/
+├── hackai_app.py          # Ana GUI uygulaması (Tkinter)
+├── pollinations_ai.py     # API istemci katmanı
+├── hackai.bat             # Windows launcher
+├── hackai                 # Linux launcher
+├── requirements.txt       # Python bağımlılıkları
+├── WARP.md               # Warp AI için geliştirici kılavuzu
+└── README.md             # Proje dokümantasyonu
+```
 
-⚠️ This tool is designed for educational and authorized security testing purposes only. Unauthorized use against systems is illegal.
+### Veri Akışı / Data Flow
 
-## Lisans / License
+1. Kullanıcı GUI'de mod seçer ve prompt girer
+2. `hackai_app.py` isteği ilgili fonksiyona yönlendirir
+3. `pollinations_ai.py` API çağrısını yapar
+4. AI yanıtı GUI'ye stream edilir
+5. Kullanıcı sonucu görüntüler ve kaydeder
 
-MIT License
+## 🛠️ Teknolojiler / Technologies
 
-## İletişim / Contact
+- **Python 3.7+**: Ana programlama dili
+- **Tkinter**: Cross-platform GUI framework
+- **Pollinations AI API**: Text generation backend
+- **Requests**: HTTP client library
+- **Threading**: Asenkron işlemler için
+- **Pillow**: Görüntü işleme (opsiyonel)
 
-GitHub: [@brr284](https://github.com/brr284)
+## ⚠️ Yasal Uyarı / Legal Disclaimer
+
+**🇹🇷 Türkçe:**
+
+Bu yazılım **yalnızca eğitim, araştırma ve yasal güvenlik testleri** için tasarlanmıştır. Kullanıcılar, bu aracı yalnızca:
+
+- Sahip oldukları sistemlerde
+- Yazılı izin aldıkları hedeflerde  
+- Yasal çerçeve içinde
+
+kullanmalıdır. **Yetkisiz erişim, veri ihlali veya zararlı amaçlarla kullanımı kesinlikle yasaktır** ve kullanıcının sorumluluğundadır.
+
+**🇬🇧 English:**
+
+This software is designed **exclusively for education, research, and authorized security testing**. Users must only use this tool on:
+
+- Systems they own
+- Targets with written permission
+- Within legal boundaries
+
+**Unauthorized access, data breaches, or malicious use is strictly prohibited** and is the sole responsibility of the user.
+
+## 📝 Lisans / License
+
+MIT License - Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+
+## 🤝 Katkıda Bulunma / Contributing
+
+Katkılarınızı bekliyoruz! Pull request göndermeden önce:
+
+1. Projeyi fork edin
+2. Feature branch oluşturun (`git checkout -b feature/AmazingFeature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'Add some AmazingFeature'`)
+4. Branch'inizi push edin (`git push origin feature/AmazingFeature`)
+5. Pull Request açın
+
+## 📧 İletişim / Contact
+
+- **GitHub**: [@brr284](https://github.com/brr284)
+- **Issues**: [GitHub Issues](https://github.com/brr284/hack-AI/issues)
+
+## 🙏 Teşekkürler / Acknowledgments
+
+- [Pollinations AI](https://pollinations.ai/) - AI API sağlayıcı
+- Tüm katkıda bulunanlara teşekkürler
+
+---
+
+<div align="center">
+
+**⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!**
+
+**Made with ❤️ for cybersecurity professionals**
+
+</div>
