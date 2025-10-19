@@ -144,6 +144,78 @@ hack-AI/
 - **Threading**: Asenkron işlemler için
 - **Pillow**: Görüntü işleme (opsiyonel)
 
+## 🤖 AI Model Limitations & Alternatives
+
+### Current Issue
+
+Pollinations AI has built-in content filters that may refuse certain security research requests. This is a limitation of the free API service.
+
+### Solutions
+
+#### Option 1: Use Alternative Prompts
+The app includes jailbreak prompts in `pollinations_ai.py`, but results may vary.
+
+#### Option 2: Local Uncensored Models (RECOMMENDED)
+
+For **complete unrestricted control**, use local AI models:
+
+**Quick Setup:**
+```bash
+# Install Ollama (5 minutes)
+winget install Ollama.Ollama
+
+# Download uncensored model
+ollama pull dolphin-mixtral
+
+# Start server
+ollama serve
+```
+
+**Uncensored Models:**
+- `dolphin-mixtral` - No restrictions
+- `wizard-vicuna-uncensored` - Fully uncensored
+- `nous-hermes` - Research-focused
+- `alpaca-lora-uncensored` - Lightweight
+
+**Integration:**
+Modify `pollinations_ai.py` to point to `http://localhost:11434`
+
+#### Option 3: Use `ai_backends.py`
+
+The project includes `ai_backends.py` with:
+- Multiple backend support
+- Automatic refusal detection
+- Fallback to working endpoints
+
+```python
+from ai_backends import AlternativeAI
+ai = AlternativeAI()
+result = ai.generate_unrestricted("your request")
+```
+
+#### Option 4: Direct API Access
+
+**HuggingFace (Free):**
+- Sign up: https://huggingface.co
+- Get API token
+- Use unrestricted models: `mistralai/Mixtral-8x7B-Instruct-v0.1`
+
+**OpenRouter (Paid but Uncensored):**
+- Multiple uncensored models
+- Pay per use
+- No content filtering
+
+### Recommendation
+
+**For serious security research, use local models.** They provide:
+- ✅ Zero restrictions
+- ✅ Complete privacy
+- ✅ No API costs
+- ✅ Full control over output
+- ✅ Offline capability
+
+---
+
 ## ⚠️ Yasal Uyarı / Legal Disclaimer
 
 **🇹🇷 Türkçe:**
