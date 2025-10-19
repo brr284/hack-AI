@@ -4,6 +4,8 @@
 
 **Siber Güvenlik AI Asistanı | Cybersecurity AI Assistant**
 
+⚠️ **IMPORTANT: Pollinations AI has content filters. For unrestricted usage, use local models (Ollama, LM Studio).** ⚠️
+
 [![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey.svg)](https://github.com/brr284/hack-AI)
