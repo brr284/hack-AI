@@ -8,20 +8,41 @@ from typing import Optional, Dict, Any
 
 
 class PollinationsAI:
-    """AI client using Pollinations API."""
+    """AI client using Pollinations API or local Ollama."""
     
-    def __init__(self):
+    def __init__(self, use_ollama=True):
         self.base_url = "https://text.pollinations.ai"
         self.image_url = "https://image.pollinations.ai/prompt"
+        self.ollama_url = "http://localhost:11434/api/generate"
+        self.ollama_model = "dolphin-mixtral"
+        self.use_ollama = use_ollama
         
     def generate_text(self, prompt: str, model: str = "openai") -> str:
         try:
-            url = f"{self.base_url}/{prompt}"
-            response = requests.get(url, params={"model": model}, timeout=60)
-            response.raise_for_status()
-            return response.text
+            if self.use_ollama:
+                return self._ollama_generate(prompt)
+            else:
+                url = f"{self.base_url}/{prompt}"
+                response = requests.get(url, params={"model": model}, timeout=60)
+                response.raise_for_status()
+                return response.text
         except Exception as e:
             return f"Error: {str(e)}"
+    
+    def _ollama_generate(self, prompt: str) -> str:
+        """Generate using local Ollama (no restrictions)."""
+        try:
+            response = requests.post(self.ollama_url, json={
+                "model": self.ollama_model,
+                "prompt": prompt,
+                "stream": False
+            }, timeout=120)
+            response.raise_for_status()
+            return response.json().get('response', '')
+        except requests.exceptions.ConnectionError:
+            return "Error: Ollama not running. Start with: ollama serve"
+        except Exception as e:
+            return f"Ollama error: {str(e)}"
     
     def generate_code(self, task: str) -> str:
         return self.generate_text(f"Generate code: {task}")
