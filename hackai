@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$1" = "open" ]; then
+    python3 "$(dirname "$0")/hackai_app.py"
+else
+    echo "Usage: hackai open"
+fi
